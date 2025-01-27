@@ -26,9 +26,6 @@ const GlobalProvider = ({ children }) => {
             })
     }
 
-
-
-
     return (
         <GlobalContext.Provider value={{ movies, setMovies, getData }}>
             {children}
