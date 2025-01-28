@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 const initialData = {
     name: "",
@@ -6,28 +7,31 @@ const initialData = {
     vote: ""
 }
 
-function FormReview({ onAddReview }) {
-    const [input, setInput] = useState(initialData);
+const apiUrl = import.meta.env.VITE_API_URL;
+
+function FormReview({ id, newReviews }) {
+    const [formData, setFormData] = useState(initialData);
 
     function handleInput(e) {
         const { name, value } = e.target;
-        setInput((prevInput) => ({
+        setFormData((prevInput) => ({
             ...prevInput,
-            [name]: value
+            [name]: value,
         }));
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        const newItem = {
-            id: Date.now(),
-            name: input.name,
-            text: input.text,
-            vote: input.vote,
-        };
-
-        onAddReview(newItem);
-        setInput(initialData);
+        axios
+            //http://localhost:3000/books/:id/reviews
+            .post(`${apiUrl}/movies/${id}/reviews`, formData)
+            .then((res) => {
+                setFormData(initialData);
+                newReviews(id);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     return (
@@ -39,8 +43,8 @@ function FormReview({ onAddReview }) {
                 <input
                     type="text"
                     name="name"
-                    value={input.name}
                     className="form-input"
+                    value={formData.name}
                     onChange={handleInput}
                 />
             </div>
@@ -51,8 +55,8 @@ function FormReview({ onAddReview }) {
                 <input
                     type="text"
                     name="text"
-                    value={input.text}
                     className="form-input"
+                    value={formData.text}
                     onChange={handleInput}
                 />
             </div>
@@ -61,11 +65,14 @@ function FormReview({ onAddReview }) {
                     Inserisci voto
                 </label>
                 <input
+                    min={1}
+                    max={5}
+                    step={1}
                     type="number"
                     name="vote"
-                    value={input.vote}
-                    onChange={handleInput}
                     className="form-input"
+                    value={formData.vote}
+                    onChange={handleInput}
                 />
             </div>
             <button type="submit" className="btn btn-primary">

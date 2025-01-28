@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Movies from "./pages/Movies";
 import Movie from "./pages/Movie";
+import NotFound from "./pages/NotFound";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
                 <Route index Component={Movies} />
                 <Route path=":id" Component={Movie} />
               </Route>
+              <Route path="*" Component={NotFound} />
             </Route>
           </Routes>
         </BrowserRouter>
