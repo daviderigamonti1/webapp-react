@@ -44,7 +44,7 @@ function Movie() {
         <>
             <section className="container d-flex flex-row justify-content-around">
                 <div>
-                    <h1 className="p-3">Movie con id {id}</h1>
+                    <h1 className="pb-3">Details</h1>
                     {movieDetails ? (
                         <CardMovie
                             movie={movieDetails}
@@ -53,13 +53,13 @@ function Movie() {
                         <div>Loading movie details...</div>
                     )}
                 </div>
-                <div>
-                    <h1 className="p-3">Reviews:</h1>
-                    <div className="row">
+                <div className="d-flex flex-column">
+                    <h1 className="ps-2">Reviews:</h1>
+                    <div>
                         <Reviews movieDetails={movieDetails} />
                     </div>
                 </div>
-            </section>
+            </section >
             <section className="container-fluid py-4">
                 <FormReview id={id} newReviews={getDetails} />
             </section>

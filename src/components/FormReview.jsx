@@ -35,10 +35,10 @@ function FormReview({ id, newReviews }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
+        <form onSubmit={handleSubmit} className="border p-3">
+            <div className="d-flex flex-column py-2">
                 <label htmlFor="name" className="form-label">
-                    Inserisci nome
+                    Nome
                 </label>
                 <input
                     type="text"
@@ -48,9 +48,9 @@ function FormReview({ id, newReviews }) {
                     onChange={handleInput}
                 />
             </div>
-            <div>
+            <div className="d-flex flex-column py-2">
                 <label htmlFor="text" className="form-label">
-                    Inserisci commento
+                    Commento
                 </label>
                 <input
                     type="text"
@@ -60,9 +60,9 @@ function FormReview({ id, newReviews }) {
                     onChange={handleInput}
                 />
             </div>
-            <div>
+            <div className="d-flex flex-column py-2">
                 <label htmlFor="vote" className="form-label">
-                    Inserisci voto
+                    Voto
                 </label>
                 <input
                     min={1}
@@ -75,7 +75,7 @@ function FormReview({ id, newReviews }) {
                     onChange={handleInput}
                 />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary my-3">
                 Aggiungi recensione
             </button>
         </form>
