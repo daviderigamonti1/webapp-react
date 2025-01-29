@@ -1,18 +1,37 @@
 import StarRating from "./StarRating";
-import { ImBin } from "react-icons/im";
+import Bin from "./Bin";
 
-function Reviews({ movieDetails }) {
+function Reviews({ movieDetails, movieId, deleteReview }) {
+
     if (!movieDetails?.reviews || movieDetails.reviews.length === 0) {
         return <div>No reviews available</div>;
     }
 
-    return movieDetails.reviews.map((review) => (
-        <div className="col-12 p-2 my-2 border" key={review.id}>
-            <div><strong>Name:</strong> {review.name}</div>
-            <div><strong>Review:</strong> {review.text}</div>
-            <div className="d-flex"><strong className="pe-2">Rating:</strong><StarRating vote={review.vote} /></div>
-        </div>
-    ));
+    return (
+        <div className="row g-3">
+            {movieDetails.reviews.map((review) => (
+                <div className="col-12 p-2 m-2 border position-relative" key={review.id}>
+                    <Bin
+                        movieId={movieId}
+                        reviewId={review.id}
+                        deleteReview={deleteReview}
+                    />
+                    <div>
+                        <strong>Name:</strong>
+                        <span className="px-2">{review.name}</span>
+                    </div>
+                    <div>
+                        <strong>Review:</strong>
+                        <span className="px-2">{review.text}</span>
+                    </div>
+                    <div className="d-flex">
+                        <strong className="pe-2">Rating:</strong>
+                        <StarRating vote={review.vote} />
+                    </div>
+                </div>
+            ))}
+        </div >
+    )
 }
 //<div><strong>Vote:</strong> {review.vote}</div>
 export default Reviews;

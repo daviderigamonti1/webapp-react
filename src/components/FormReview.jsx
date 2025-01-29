@@ -23,7 +23,6 @@ function FormReview({ id, newReviews }) {
     function handleSubmit(e) {
         e.preventDefault();
         axios
-            //http://localhost:3000/books/:id/reviews
             .post(`${apiUrl}/movies/${id}/reviews`, formData)
             .then((res) => {
                 setFormData(initialData);
@@ -35,50 +34,56 @@ function FormReview({ id, newReviews }) {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="border p-3">
-            <div className="d-flex flex-column py-2">
-                <label htmlFor="name" className="form-label">
-                    Nome
-                </label>
-                <input
-                    type="text"
-                    name="name"
-                    className="form-input"
-                    value={formData.name}
-                    onChange={handleInput}
-                />
-            </div>
-            <div className="d-flex flex-column py-2">
-                <label htmlFor="text" className="form-label">
-                    Commento
-                </label>
-                <input
-                    type="text"
-                    name="text"
-                    className="form-input"
-                    value={formData.text}
-                    onChange={handleInput}
-                />
-            </div>
-            <div className="d-flex flex-column py-2">
-                <label htmlFor="vote" className="form-label">
-                    Voto
-                </label>
-                <input
-                    min={1}
-                    max={5}
-                    step={1}
-                    type="number"
-                    name="vote"
-                    className="form-input"
-                    value={formData.vote}
-                    onChange={handleInput}
-                />
-            </div>
-            <button type="submit" className="btn btn-primary my-3">
-                Aggiungi recensione
-            </button>
-        </form>
+        <section className="border p-3">
+            <h3 className="mb-3">Aggiungi recensione</h3>
+            <form onSubmit={handleSubmit} className="border p-2">
+                <div className="d-flex flex-column py-2">
+                    <label htmlFor="name" className="form-label">
+                        Nome
+                    </label>
+                    <input
+                        type="text"
+                        name="name"
+                        className="form-control"
+                        value={formData.name}
+                        onChange={handleInput}
+                        required
+                    />
+                </div>
+                <div className="d-flex flex-column py-2">
+                    <label htmlFor="text" className="form-label">
+                        Commento
+                    </label>
+                    <input
+                        type="text"
+                        name="text"
+                        className="form-control"
+                        value={formData.text}
+                        onChange={handleInput}
+                        required
+                    />
+                </div>
+                <div className="d-flex flex-column py-2">
+                    <label htmlFor="vote" className="form-label">
+                        Voto
+                    </label>
+                    <input
+                        min={1}
+                        max={5}
+                        step={1}
+                        type="number"
+                        name="vote"
+                        className="form-control"
+                        value={formData.vote}
+                        onChange={handleInput}
+                        required
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary my-3">
+                    Aggiungi recensione
+                </button>
+            </form>
+        </section>
     );
 }
 

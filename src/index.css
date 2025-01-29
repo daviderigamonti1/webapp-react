@@ -26,3 +26,17 @@ footer {
     background-color: black;
     color: white;
 }
+
+.bin {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+}
+
+h3 {
+    font-size: 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
