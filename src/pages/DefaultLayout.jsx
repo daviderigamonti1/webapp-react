@@ -11,7 +11,7 @@ function DefaultLayout() {
         <>
             <Header />
             {isLoading && <Loader />}
-            <main className="container p-5">
+            <main>
                 <Outlet />
             </main>
             <Footer />

@@ -18,13 +18,10 @@
     border-radius: 10px;
 }
 
-.text-footer {
-    font-size: 0.6em;
-}
-
 footer {
-    background-color: black;
-    color: white;
+    background-color: #333333;
+    color: #D3D3D3;
+    font-size: 0.8em;
 }
 
 .bin {
@@ -43,8 +40,83 @@ h2 {
 
 .card {
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .card-body {
     background-color: #f8f9fa;
+}
+
+#logo {
+    font-size: 2.8em;
+    text-align: center;
+    line-height: 18px;
+}
+
+#home {
+    background-image: url(/public/img/background.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: brightness(1.2) contrast(1.1);
+    height: 100%;
+}
+
+header {
+    background-color: #1A2330;
+    color: #D0C0B5;
+}
+
+.navbar .nav-link {
+    color: #D0C0B5;
+}
+
+.navbar .nav-link.active {
+    color: #F1C40F;
+}
+
+h1,
+h2,
+h3,
+.card-title {
+    color: #F1C40F;
+}
+
+p {
+    color: #D0C0B5
+}
+
+.btn {
+    background-color: #9B1B30;
+    color: #FFFFFF;
+}
+
+main {
+    background-color: #121212;
+    color: white;
+}
+
+.card-body {
+    background-color: #2C2C2C;
+}
+
+.btn:hover {
+    background-color: #F1C40F;
+}
+
+.icon-container {
+    background-color: #121212;
+    color: #F1C40F;
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: absolute;
+    top: 33%;
+    left: 46.5%;
+}
+
+.review-container .bin {
+    color: #9B1B30;
+    background-color: #12121200;
 }

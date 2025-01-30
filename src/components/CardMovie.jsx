@@ -5,12 +5,12 @@ function CardMovie({ movie }) {
         return <div>Loading...</div>
     }
     return (
-        <div className="card" style={{ width: '18rem' }}>
+        <div className="card" style={{ width: '15rem' }}>
             <img src={movie.image} className="card-img-top" alt={movie.title} />
-            <div className="card-body">
+            <div className="card-body text-center">
                 <h5 className="card-title">{movie.title}</h5>
                 <p className="card-text">{movie.abstract}</p>
-                <Link to={`/movies/${movie.id}`} className="btn btn-primary">
+                <Link to={`/movies/${movie.id}`} className="btn">
                     Dettagli
                 </Link>
             </div>

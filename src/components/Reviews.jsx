@@ -10,7 +10,7 @@ function Reviews({ movieDetails, movieId, deleteReview }) {
     return (
         <div className="row g-3">
             {movieDetails.reviews.map((review) => (
-                <div className="col-12 p-2 m-2 border position-relative" key={review.id}>
+                <div className="col-12 p-2 ml-2 border position-relative review-container" key={review.id}>
                     <Bin
                         movieId={movieId}
                         reviewId={review.id}
